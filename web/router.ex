@@ -16,7 +16,13 @@ defmodule Appointment.Router do
   scope "/", Appointment do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/home", PageController, :home
+    get "/register/new", RegisterController, :new
+    post "/register", RegisterController, :register
+    get "/login", LoginController, :login
+    get "/logout", LoginController, :logout
+    get "/admin", AdminController, :admin
+    get "/", PageController, :index    
   end
 
   # Other scopes may use custom stacks.
